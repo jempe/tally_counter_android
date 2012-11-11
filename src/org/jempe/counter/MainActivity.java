@@ -3,12 +3,14 @@ package org.jempe.counter;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
+	private Vibrator mVibrator = null;
 	private TextView mDisplayCount;
 	private TapCounter mTapCounter = new TapCounter();
 	public static final String PREFS_NAME = "CounterPrefs";
@@ -19,6 +21,8 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         
         mDisplayCount = (TextView)findViewById(R.id.displayCount);
+        
+        mVibrator = (Vibrator)getSystemService(VIBRATOR_SERVICE);
     }
     
     public void onResume()
@@ -46,6 +50,7 @@ public class MainActivity extends Activity {
         String currentCount = mTapCounter.getCount();
         
         mDisplayCount.setText(currentCount);
+    	mVibrator.vibrate(50);
     }
     
     private void saveCount()
