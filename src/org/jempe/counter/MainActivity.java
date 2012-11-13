@@ -55,7 +55,25 @@ public class MainActivity extends Activity {
                 decreaseCount();
                 return true;
             case R.id.reset_count_menu:
-            	resetCount();
+            	AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            	
+            	builder.setMessage(R.string.reset_message)
+                .setTitle(R.string.reset_title);
+            	
+            	// Add the buttons
+            	builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+            	           public void onClick(DialogInterface dialog, int id) {
+            	            	resetCount();
+            	           }
+            	       });
+            	builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+            	           public void onClick(DialogInterface dialog, int id) {
+            	           }
+            	       });
+
+            	// Create the AlertDialog
+            	AlertDialog dialog = builder.create();
+            	dialog.show();
             	return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -85,30 +103,12 @@ public class MainActivity extends Activity {
     
     public void resetCount()
     {
-    	AlertDialog.Builder builder = new AlertDialog.Builder(this);
-    	
-    	builder.setMessage(R.string.reset_message)
-        .setTitle(R.string.reset_title);
-    	
-    	// Add the buttons
-    	builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-    	           public void onClick(DialogInterface dialog, int id) {
-    	           		mTapCounter.resetCount();
-    	           		saveCount();
-    	        	
-    	           		String currentCount = mTapCounter.getCount();
-    	            
-    	           		mDisplayCount.setText(currentCount);
-    	           }
-    	       });
-    	builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
-    	           public void onClick(DialogInterface dialog, int id) {
-    	           }
-    	       });
-
-    	// Create the AlertDialog
-    	AlertDialog dialog = builder.create();
-    	dialog.show();
+   		mTapCounter.resetCount();
+   		saveCount();
+	
+   		String currentCount = mTapCounter.getCount();
+    
+   		mDisplayCount.setText(currentCount);
     }
     
     private void saveCount()
