@@ -5,5 +5,9 @@
     <string name="title_activity_main">Counter</string>
     <string name="decrease_count">Decrease Count</string>
     <string name="reset_count">Reset Count</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="reset_title">Reset Title</string>
+    <string name="reset_message">Do you really want to reset?</string>
 
 </resources>

@@ -1,6 +1,8 @@
 package org.jempe.counter;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Vibrator;
@@ -53,8 +55,8 @@ public class MainActivity extends Activity {
                 decreaseCount();
                 return true;
             case R.id.reset_count_menu:
-                resetCount();
-                return true;
+            	resetCount();
+            	return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -83,12 +85,30 @@ public class MainActivity extends Activity {
     
     public void resetCount()
     {
-    	mTapCounter.resetCount();
-    	saveCount();
+    	AlertDialog.Builder builder = new AlertDialog.Builder(this);
     	
-        String currentCount = mTapCounter.getCount();
-        
-        mDisplayCount.setText(currentCount);
+    	builder.setMessage(R.string.reset_message)
+        .setTitle(R.string.reset_title);
+    	
+    	// Add the buttons
+    	builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+    	           public void onClick(DialogInterface dialog, int id) {
+    	           		mTapCounter.resetCount();
+    	           		saveCount();
+    	        	
+    	           		String currentCount = mTapCounter.getCount();
+    	            
+    	           		mDisplayCount.setText(currentCount);
+    	           }
+    	       });
+    	builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+    	           public void onClick(DialogInterface dialog, int id) {
+    	           }
+    	       });
+
+    	// Create the AlertDialog
+    	AlertDialog dialog = builder.create();
+    	dialog.show();
     }
     
     private void saveCount()
