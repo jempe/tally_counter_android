@@ -9,5 +9,5 @@
     <string name="no">No</string>
     <string name="reset_title">Reset Count</string>
     <string name="reset_message">Do you really want to reset?</string>
-
+    <string name="view_source">View Source Code</string>
 </resources>

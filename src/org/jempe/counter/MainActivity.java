@@ -3,7 +3,9 @@ package org.jempe.counter;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.Menu;
@@ -51,6 +53,9 @@ public class MainActivity extends Activity {
     {
         // Handle item selection
         switch (item.getItemId()) {
+        	case R.id.view_source_menu:
+        		viewSource();
+        		return true;
             case R.id.decrease_count_menu:
                 decreaseCount();
                 return true;
@@ -109,6 +114,14 @@ public class MainActivity extends Activity {
    		String currentCount = mTapCounter.getCount();
     
    		mDisplayCount.setText(currentCount);
+    }
+    
+    public void viewSource()
+    {
+    	Uri webpage = Uri.parse("https://github.com/jempe/-tapcounter-android");
+    	Intent webIntent = new Intent(Intent.ACTION_VIEW, webpage);
+    	
+    	startActivity(webIntent);
     }
     
     private void saveCount()

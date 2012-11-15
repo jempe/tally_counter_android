@@ -7,4 +7,8 @@
         android:title="@string/reset_count"
         android:orderInCategory="101"
         android:showAsAction="never" />
+ 	 <item android:id="@+id/view_source_menu"
+        android:title="@string/view_source"
+        android:orderInCategory="101"
+        android:showAsAction="never" />
 </menu>
