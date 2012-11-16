@@ -21,6 +21,7 @@ public class MainActivity extends Activity {
 	private TapCounter mTapCounter = new TapCounter();
 	public static final String PREFS_NAME = "CounterPrefs";
 	private TextView mTapMessage;
+	private TextView mDecreaseMessage;
 	private boolean mTapMessageHidden;
 	
     @Override
@@ -30,6 +31,7 @@ public class MainActivity extends Activity {
         
         mDisplayCount = (TextView)findViewById(R.id.displayCount);
         mTapMessage = (TextView)findViewById(R.id.tap_to_count_message);
+        mDecreaseMessage = (TextView)findViewById(R.id.decrease_message);
         mVibrator = (Vibrator)getSystemService(VIBRATOR_SERVICE);
     }
     
@@ -155,10 +157,22 @@ public class MainActivity extends Activity {
     	
     	mTapMessage.setAnimation(fadeOutAnimation);
     	mTapMessageHidden = true;
+    	
+    	AlphaAnimation fadeInAnimation = new AlphaAnimation(0, 1);
+    	fadeInAnimation.setDuration(1500);
+    	fadeInAnimation.setFillAfter(true);
+    	
+    	mDecreaseMessage.setAnimation(fadeInAnimation);
     }
     
     private void showTapMessage()
     {
+    	AlphaAnimation fadeOutAnimation = new AlphaAnimation(1, 0);
+    	fadeOutAnimation.setDuration(0);
+    	fadeOutAnimation.setFillAfter(true);
+    	
+    	mDecreaseMessage.setAnimation(fadeOutAnimation);
+    	
     	AlphaAnimation fadeInAnimation = new AlphaAnimation(0, 1);
     	fadeInAnimation.setDuration(1500);
     	fadeInAnimation.setFillAfter(true);

@@ -10,4 +10,5 @@
     <string name="reset_message">Do you really want to reset?</string>
     <string name="view_source">View Source Code</string>
     <string name="tap_to_count">Tap Screen to Count</string>
+    <string name="back_to_decrease">"Press Back button to decrease count\nPress Settings to see more options"</string>
 </resources>

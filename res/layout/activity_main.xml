@@ -59,4 +59,14 @@
         android:text="@string/tap_to_count"
         android:textSize="18sp" />
 
+    <TextView
+        android:id="@+id/decrease_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="31dp"
+        android:gravity="center"
+        android:text="@string/back_to_decrease" />
+
 </RelativeLayout>
