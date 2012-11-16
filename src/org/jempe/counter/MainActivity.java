@@ -151,7 +151,7 @@ public class MainActivity extends Activity {
     
     private void hideTapMessage()
     {
-    	AlphaAnimation fadeOutAnimation = new AlphaAnimation(1, 0);
+    	AlphaAnimation fadeOutAnimation = new AlphaAnimation(1, (float) 0.2);
     	fadeOutAnimation.setDuration(1500);
     	fadeOutAnimation.setFillAfter(true);
     	
@@ -173,7 +173,7 @@ public class MainActivity extends Activity {
     	
     	mDecreaseMessage.setAnimation(fadeOutAnimation);
     	
-    	AlphaAnimation fadeInAnimation = new AlphaAnimation(0, 1);
+    	AlphaAnimation fadeInAnimation = new AlphaAnimation((float) 0.2, 1);
     	fadeInAnimation.setDuration(1500);
     	fadeInAnimation.setFillAfter(true);
     	
