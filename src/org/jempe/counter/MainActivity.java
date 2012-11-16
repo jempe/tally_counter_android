@@ -11,6 +11,7 @@ import android.os.Vibrator;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
@@ -19,6 +20,8 @@ public class MainActivity extends Activity {
 	private TextView mDisplayCount;
 	private TapCounter mTapCounter = new TapCounter();
 	public static final String PREFS_NAME = "CounterPrefs";
+	private TextView mTapMessage;
+	private boolean mTapMessageHidden;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -26,7 +29,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         
         mDisplayCount = (TextView)findViewById(R.id.displayCount);
-        
+        mTapMessage = (TextView)findViewById(R.id.tap_to_count_message);
         mVibrator = (Vibrator)getSystemService(VIBRATOR_SERVICE);
     }
     
@@ -39,6 +42,7 @@ public class MainActivity extends Activity {
         String currentCount = mTapCounter.getCount();
         
         mDisplayCount.setText(currentCount);
+        showTapMessage();
     }
 
     @Override
@@ -94,6 +98,10 @@ public class MainActivity extends Activity {
         
         mDisplayCount.setText(currentCount);
     	mVibrator.vibrate(50);
+    	if(mTapMessageHidden == false)
+    	{
+    		hideTapMessage();
+    	}
     }
     
     public void decreaseCount()
@@ -137,5 +145,25 @@ public class MainActivity extends Activity {
     public void onBackPressed()
     {
         decreaseCount();
+    }
+    
+    private void hideTapMessage()
+    {
+    	AlphaAnimation fadeOutAnimation = new AlphaAnimation(1, 0);
+    	fadeOutAnimation.setDuration(1500);
+    	fadeOutAnimation.setFillAfter(true);
+    	
+    	mTapMessage.setAnimation(fadeOutAnimation);
+    	mTapMessageHidden = true;
+    }
+    
+    private void showTapMessage()
+    {
+    	AlphaAnimation fadeInAnimation = new AlphaAnimation(0, 1);
+    	fadeInAnimation.setDuration(1500);
+    	fadeInAnimation.setFillAfter(true);
+    	
+    	mTapMessage.setAnimation(fadeInAnimation);
+    	mTapMessageHidden = false;
     }
 }
