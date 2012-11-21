@@ -31,17 +31,21 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.8"
             android:background="@drawable/count_box" >
-
-            <TextView
-                android:id="@+id/displayCount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:textColor="@android:color/white"
-                android:textSize="64sp"
-                tools:context=".MainActivity" />
-
+        	<RelativeLayout
+            	android:id="@+id/count_gradient"
+            	android:layout_width="fill_parent"
+            	android:layout_height="wrap_content"
+            	android:background="@drawable/count_gradient" >
+            	<TextView
+                	android:id="@+id/displayCount"
+                	android:layout_width="wrap_content"
+                	android:layout_height="wrap_content"
+                	android:layout_centerHorizontal="true"
+                	android:layout_centerVertical="true"
+                	android:textColor="@android:color/white"
+                	android:textSize="64sp"
+                	tools:context=".MainActivity" />
+			</RelativeLayout>
         </RelativeLayout>
 
         <View
