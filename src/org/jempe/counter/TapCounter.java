@@ -11,6 +11,17 @@ public class TapCounter
 	{
 		String current_count = String.valueOf(tap_count);
 		
+		if(current_count.length() < 6)
+		{
+			String zeroes = "";
+			for(int i = 0; i < (6 - current_count.length()); i++)
+			{
+				zeroes += "0";
+			}
+			
+			current_count = zeroes + current_count;
+		}
+		
 		return current_count;
 	}
 	

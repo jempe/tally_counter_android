@@ -6,13 +6,17 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.graphics.drawable.PaintDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
@@ -27,8 +31,11 @@ public class MainActivity extends Activity {
 	private boolean mTapMessageHidden;
 	private Typeface mNunitoBold;
 	private Typeface mNunito;
+	private int mWidth; 
+	private int mHeight;
+	private PaintDrawable mSignDrawable;
 	
-    @Override
+	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -47,6 +54,26 @@ public class MainActivity extends Activity {
         mCountSign.setTypeface(mNunitoBold);
         mDisplayCount.setTypeface(mNunito);
         
+        // get screen size
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+        mHeight = metrics.heightPixels;
+        mWidth = metrics.widthPixels;
+        
+        // set the size of the textviews
+        mDisplayCount.setTextSize(TypedValue.COMPLEX_UNIT_PX, mHeight / 8);
+        mCountSign.setTextSize(TypedValue.COMPLEX_UNIT_PX, mHeight / 8);
+        
+        int sign_width = (int) mHeight / 9;
+        
+        RelativeLayout.LayoutParams layoutparams = new RelativeLayout.LayoutParams(sign_width, sign_width);
+        layoutparams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, RelativeLayout.TRUE);
+        layoutparams.addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.TRUE);
+        layoutparams.rightMargin = 20;
+        layoutparams.topMargin = (int) ((mHeight - (mHeight / 1.618)) - (sign_width * 1.5));
+        mCountSign.setLayoutParams(layoutparams);
+
     }
     
     public void onResume()

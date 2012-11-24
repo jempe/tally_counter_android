@@ -20,10 +20,10 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="188dp"
         android:background="@drawable/count_box"
         android:gravity="center"
-        android:text="+"
+        android:text="@string/plus_sign"
         android:textColor="@color/light_blue"
         android:textSize="120sp"
         tools:context=".MainActivity" />
@@ -35,8 +35,22 @@
         android:layout_alignRight="@id/countSign"
         android:layout_below="@+id/countSign"
         android:gravity="right"
+        android:paddingTop="-25dp"
         android:textColor="@android:color/white"
         android:textSize="80sp"
+        tools:context=".MainActivity" />
+    
+    <TextView
+        android:id="@+id/CounterName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/countSign"
+        android:layout_below="@id/countSign"
+        android:gravity="right"
+        android:text="Counter # 1"
+        android:textColor="@android:color/white"
+        android:paddingTop="70dp"
+        android:textSize="20sp"
         tools:context=".MainActivity" />
     
     <TextView

@@ -19,7 +19,7 @@
 <resources>
 
     <style name="light_blue" parent="android:Theme.Light">
-        <item name="android:background">#19AEFF</item>
+        
     </style>
 
 </resources>
