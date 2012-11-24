@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#330000" >
+    android:background="@color/light_blue" >
 
     <Button
         android:id="@+id/button1"
@@ -13,58 +13,32 @@
         android:soundEffectsEnabled="false"
          />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:weightSum="1" >
-
-        <View
-            android:id="@+id/view1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="0.1" />
-
-        <RelativeLayout
-            android:id="@+id/view3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.8"
-            android:background="@drawable/count_box" >
-        	<RelativeLayout
-            	android:id="@+id/count_gradient"
-            	android:layout_width="fill_parent"
-            	android:layout_height="wrap_content"
-            	android:background="@drawable/count_gradient" >
-            	<TextView
-                	android:id="@+id/displayCount"
-                	android:layout_width="wrap_content"
-                	android:layout_height="wrap_content"
-                	android:layout_centerHorizontal="true"
-                	android:layout_centerVertical="true"
-                	android:textColor="@android:color/white"
-                	android:textSize="64sp"
-                	tools:context=".MainActivity" />
-			</RelativeLayout>
-        </RelativeLayout>
-
-        <View
-            android:id="@+id/view2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="0.1" />
-    </LinearLayout>
-
     <TextView
-        android:id="@+id/tap_to_count_message"
+        android:id="@+id/countSign"
+        android:layout_width="80sp"
+        android:layout_height="80sp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="38dp"
+        android:background="@drawable/count_box"
+        android:gravity="center"
+        android:text="+"
+        android:textColor="@color/light_blue"
+        android:textSize="120sp"
+        tools:context=".MainActivity" />
+    
+    <TextView
+        android:id="@+id/displayCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/tap_to_count"
+        android:layout_alignRight="@id/countSign"
+        android:layout_below="@+id/countSign"
+        android:gravity="right"
         android:textColor="@android:color/white"
-        android:textSize="18sp" />
-
+        android:textSize="80sp"
+        tools:context=".MainActivity" />
+    
     <TextView
         android:id="@+id/decrease_message"
         android:layout_width="wrap_content"
@@ -75,5 +49,16 @@
         android:gravity="center"
         android:text="@string/back_to_decrease"
         android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/tap_to_count_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/displayCount"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="@string/tap_to_count"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
 
 </RelativeLayout>

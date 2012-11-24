@@ -14,10 +14,21 @@
    height="1052.3622047"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.2 r9819"
+   inkscape:version="0.48.3.1 r9886"
    sodipodi:docname="icon.svg">
   <defs
      id="defs4">
+    <linearGradient
+       id="linearGradient4457">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop4459" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop4461" />
+    </linearGradient>
     <linearGradient
        id="linearGradient3807">
       <stop
@@ -210,6 +221,25 @@
        x2="232.34523"
        y2="518.19073"
        gradientTransform="matrix(2.8929458,0,0,2.8929458,-219.56533,-1226.7741)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4457"
+       id="linearGradient4463"
+       x1="365.57422"
+       y1="278.20154"
+       x2="366.28134"
+       y2="353.15488"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4457"
+       id="linearGradient4467"
+       gradientUnits="userSpaceOnUse"
+       x1="369.10974"
+       y1="351.74066"
+       x2="369.81686"
+       y2="278.20157"
+       gradientTransform="translate(0,218)" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -218,14 +248,14 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.24748737"
-     inkscape:cx="178.83413"
-     inkscape:cy="391.25534"
+     inkscape:zoom="0.5"
+     inkscape:cx="435.22196"
+     inkscape:cy="428.17707"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1024"
-     inkscape:window-height="576"
+     inkscape:window-width="1440"
+     inkscape:window-height="876"
      inkscape:window-x="0"
      inkscape:window-y="24"
      inkscape:window-maximized="1" />
@@ -245,129 +275,144 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <rect
-       ry="21.357325"
-       rx="21.357325"
-       y="254.67827"
-       x="141.62013"
-       height="345.1864"
-       width="448.74243"
-       id="rect3979"
-       style="color:#000000;fill:#000000;stroke:none;stroke-width:17.7181263;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       inkscape:export-filename="/home/kastro/android_apps/Counter/ic_launcher-web.png"
+    <g
+       id="g4474"
+       inkscape:export-filename="/home/sucio/android_apps/Counter/counter_icon-web.png"
        inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="color:#000000;fill:url(#linearGradient3977);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       id="rect2989"
-       width="178.26131"
-       height="300.99869"
-       x="379.50955"
-       y="277.59183"
-       inkscape:export-filename="/home/kastro/android_apps/Counter/ic_launcher-web.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       y="277.59183"
-       x="557.82971"
-       height="300.99869"
-       width="10.833336"
-       id="rect3789"
-       style="color:#000000;fill:url(#linearGradient3974);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       inkscape:export-filename="/home/kastro/android_apps/Counter/ic_launcher-web.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="color:#000000;fill:url(#linearGradient3971);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       id="rect3803"
-       width="8.7669468"
-       height="300.99869"
-       x="372.73975"
-       y="277.59183"
-       inkscape:export-filename="/home/kastro/android_apps/Counter/ic_launcher-web.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       y="277.59183"
-       x="177.00346"
-       height="300.99869"
-       width="178.26131"
-       id="rect3931"
-       style="color:#000000;fill:url(#linearGradient3959);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       inkscape:export-filename="/home/kastro/android_apps/Counter/ic_launcher-web.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="color:#000000;fill:url(#linearGradient3956);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       id="rect3933"
-       width="10.833336"
-       height="300.99869"
-       x="355.32339"
-       y="277.59183"
-       inkscape:export-filename="/home/kastro/android_apps/Counter/ic_launcher-web.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       y="277.59183"
-       x="170.23364"
-       height="300.99869"
-       width="8.7669468"
-       id="rect3935"
-       style="color:#000000;fill:url(#linearGradient3953);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       inkscape:export-filename="/home/kastro/android_apps/Counter/ic_launcher-web.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <text
-       sodipodi:linespacing="125%"
-       id="text3937"
-       y="387.71118"
-       x="406.1109"
-       style="font-size:208.292099px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Droid Sans;-inkscape-font-specification:Droid Sans Bold"
-       xml:space="preserve"
-       inkscape:export-filename="/home/kastro/android_apps/Counter/ic_launcher-web.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90"><tspan
-         y="387.71118"
-         x="406.1109"
-         id="tspan3939"
-         sodipodi:role="line">1</tspan><tspan
-         id="tspan3941"
-         y="648.07629"
-         x="406.1109"
-         sodipodi:role="line">2</tspan></text>
-    <rect
-       style="color:#000000;fill:none;stroke:#000000;stroke-width:51.25757599;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       id="rect2985"
-       width="448.74243"
-       height="345.1864"
-       x="141.62013"
-       y="254.67827"
-       rx="21.357325"
-       ry="21.357325"
-       inkscape:export-filename="/home/kastro/android_apps/Counter/ic_launcher-web.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <text
-       xml:space="preserve"
-       style="font-size:208.292099px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Droid Sans;-inkscape-font-specification:Droid Sans Bold"
-       x="208.61716"
-       y="497.64267"
-       id="text3834"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="/home/kastro/android_apps/Counter/ic_launcher-web.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90"><tspan
-         sodipodi:role="line"
-         id="tspan3836"
+       inkscape:export-ydpi="90">
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/kastro/android_apps/Counter/ic_launcher-web.png"
+         style="color:#000000;fill:#000000;stroke:none;stroke-width:17.7181263;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         id="rect3979"
+         width="448.74243"
+         height="345.1864"
+         x="141.62013"
+         y="254.67827"
+         rx="21.357325"
+         ry="21.357325" />
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/kastro/android_apps/Counter/ic_launcher-web.png"
+         y="277.59183"
+         x="379.50955"
+         height="300.99869"
+         width="178.26131"
+         id="rect2989"
+         style="color:#000000;fill:url(#linearGradient3977);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/kastro/android_apps/Counter/ic_launcher-web.png"
+         style="color:#000000;fill:url(#linearGradient3974);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         id="rect3789"
+         width="10.833336"
+         height="300.99869"
+         x="557.82971"
+         y="277.59183" />
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/kastro/android_apps/Counter/ic_launcher-web.png"
+         y="277.59183"
+         x="372.73975"
+         height="300.99869"
+         width="8.7669468"
+         id="rect3803"
+         style="color:#000000;fill:url(#linearGradient3971);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/kastro/android_apps/Counter/ic_launcher-web.png"
+         style="color:#000000;fill:url(#linearGradient3959);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         id="rect3931"
+         width="178.26131"
+         height="300.99869"
+         x="177.00346"
+         y="277.59183" />
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/kastro/android_apps/Counter/ic_launcher-web.png"
+         y="277.59183"
+         x="355.32339"
+         height="300.99869"
+         width="10.833336"
+         id="rect3933"
+         style="color:#000000;fill:url(#linearGradient3956);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/kastro/android_apps/Counter/ic_launcher-web.png"
+         style="color:#000000;fill:url(#linearGradient3953);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         id="rect3935"
+         width="8.7669468"
+         height="300.99869"
+         x="170.23364"
+         y="277.59183" />
+      <g
+         id="text3937"
+         style="font-size:208.292099px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Droid Sans;-inkscape-font-specification:Droid Sans Bold">
+        <path
+           id="path4470"
+           style=""
+           d="m 489.20399,387.71118 -31.42688,0 0,-86.04254 c -6e-5,-1.7628 -6e-5,-3.8647 0,-6.30571 0.0677,-2.50863 0.13555,-5.08516 0.20341,-7.72959 0.13555,-2.71204 0.23726,-5.42417 0.30511,-8.13641 0.13556,-2.71203 0.23726,-5.18685 0.30512,-7.42448 -0.33907,0.40694 -0.9154,1.01717 -1.72899,1.8307 -0.81369,0.81375 -1.72904,1.72909 -2.74604,2.74603 -1.0171,0.94936 -2.06805,1.93251 -3.15286,2.94945 -1.0849,1.01716 -2.13585,1.93251 -3.15286,2.74604 l -17.08646,13.73019 -15.25577,-18.91715 47.90312,-38.13942 25.8331,0 0,148.69289" />
+        <path
+           sodipodi:nodetypes="ccccssccccccccccccccccccccccc"
+           inkscape:connector-curvature="0"
+           id="path4472"
+           d="m 500.72345,621.57631 -85.27273,-28 0,21.63339 33.98656,-26.7326 c 4.40718,-4.74617 8.40758,-9.11949 12.00121,-13.11996 3.59352,-4.00032 6.67857,-7.89902 9.25517,-11.69609 2.57646,-3.7969 4.57666,-7.66169 6.0006,-11.59438 1.4238,-3.9325 2.13573,-8.17021 2.13581,-12.71314 -8e-5,-5.01734 -1.52565,-8.91604 -4.57673,-11.69609 -2.98342,-2.77982 -7.01772,-4.16979 -12.10291,-4.16991 -5.35653,1.2e-4 -10.50958,1.32229 -15.45918,3.9665 -4.94969,2.64445 -10.13665,6.40753 -15.56089,11.28926 L 414.0439,518.50397 c 3.05114,-2.7798 6.2379,-5.42413 9.56028,-7.933 3.32235,-2.57639 6.98373,-4.8478 10.98416,-6.81424 4.00037,-1.96615 8.40758,-3.52563 13.22166,-4.67843 4.814,-1.22032 10.20437,-1.83055 16.17112,-1.8307 7.11929,1.5e-4 13.49281,0.9833 19.12056,2.94945 5.69541,1.96645 10.54335,4.78029 14.54383,8.44153 4.00031,3.59371 7.05146,7.96703 9.15347,13.11996 2.1696,5.15318 3.25446,10.95037 3.25456,17.39157 -10e-5,5.8312 -1.01715,11.42498 -3.05115,16.78135 -2.03421,5.28875 -4.81414,10.50961 -8.33982,15.66259 -3.52587,5.08533 -7.62797,10.17058 -12.30632,15.25577 -4.61071,5.01751 -9.56036,10.13666 -14.84895,15.35747 l -16.90011,9.00181 -6,3.42387 66.61626,-1.5 0,7.44334" />
+      </g>
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/kastro/android_apps/Counter/ic_launcher-web.png"
+         ry="21.357325"
+         rx="21.357325"
+         y="252.67827"
+         x="141.62013"
+         height="345.1864"
+         width="448.74243"
+         id="rect2985"
+         style="color:#000000;fill:none;stroke:#19aeff;stroke-width:51.25757598999999942;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/kastro/android_apps/Counter/ic_launcher-web.png"
+         sodipodi:linespacing="125%"
+         id="text3834"
+         y="497.64267"
          x="208.61716"
-         y="497.64267">1</tspan><tspan
-         sodipodi:role="line"
-         x="208.61716"
-         y="758.00781"
-         id="tspan3981" /><tspan
-         sodipodi:role="line"
-         x="208.61716"
-         y="1018.3729"
-         id="tspan3838" /></text>
+         style="font-size:208.292099px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Droid Sans;-inkscape-font-specification:Droid Sans Bold"
+         xml:space="preserve"><tspan
+           y="497.64267"
+           x="208.61716"
+           id="tspan3836"
+           sodipodi:role="line">1</tspan><tspan
+           id="tspan3981"
+           y="758.00781"
+           x="208.61716"
+           sodipodi:role="line" /><tspan
+           id="tspan3838"
+           y="1018.3729"
+           x="208.61716"
+           sodipodi:role="line" /></text>
+      <rect
+         y="278.20157"
+         x="167.5843"
+         height="76.367531"
+         width="396.68692"
+         id="rect4455"
+         style="fill:url(#linearGradient4463);fill-opacity:1;stroke:none" />
+      <rect
+         style="fill:url(#linearGradient4467);fill-opacity:1;stroke:none"
+         id="rect4465"
+         width="396.68692"
+         height="76.367531"
+         x="167.5843"
+         y="496.20154" />
+    </g>
   </g>
 </svg>

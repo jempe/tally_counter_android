@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
@@ -22,7 +23,10 @@ public class MainActivity extends Activity {
 	public static final String PREFS_NAME = "CounterPrefs";
 	private TextView mTapMessage;
 	private TextView mDecreaseMessage;
+	private TextView mCountSign;
 	private boolean mTapMessageHidden;
+	private Typeface mNunitoBold;
+	private Typeface mNunito;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,7 +36,17 @@ public class MainActivity extends Activity {
         mDisplayCount = (TextView)findViewById(R.id.displayCount);
         mTapMessage = (TextView)findViewById(R.id.tap_to_count_message);
         mDecreaseMessage = (TextView)findViewById(R.id.decrease_message);
+        mCountSign = (TextView) findViewById(R.id.countSign);
         mVibrator = (Vibrator)getSystemService(VIBRATOR_SERVICE);
+        
+        // Load fonts from assets folder
+        mNunitoBold = Typeface.createFromAsset(getAssets(), "Nunito-Bold.ttf");  
+        mNunito = Typeface.createFromAsset(getAssets(), "Nunito-Regular.ttf");  
+        
+        // assign fonts to textViews
+        mCountSign.setTypeface(mNunitoBold);
+        mDisplayCount.setTypeface(mNunito);
+        
     }
     
     public void onResume()

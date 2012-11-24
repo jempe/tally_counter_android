@@ -1,5 +1,6 @@
 <resources>
 
-    <style name="AppTheme" parent="android:Theme.Holo.Light" />
-
+    <style name="light_blue" parent="android:Theme.Holo.Light">
+        <item name="android:background">#19AEFF</item>
+    </style>
 </resources>
