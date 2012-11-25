@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -27,13 +28,14 @@ public class MainActivity extends Activity {
 	public static final String PREFS_NAME = "CounterPrefs";
 	private TextView mTapMessage;
 	private TextView mDecreaseMessage;
-	private TextView mCountSign;
+	private TextView mCounterName;
+	private ImageView mCountSign;
 	private boolean mTapMessageHidden;
 	private Typeface mNunitoBold;
 	private Typeface mNunito;
 	private int mWidth; 
 	private int mHeight;
-	private PaintDrawable mSignDrawable;
+
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,7 +45,8 @@ public class MainActivity extends Activity {
         mDisplayCount = (TextView)findViewById(R.id.displayCount);
         mTapMessage = (TextView)findViewById(R.id.tap_to_count_message);
         mDecreaseMessage = (TextView)findViewById(R.id.decrease_message);
-        mCountSign = (TextView) findViewById(R.id.countSign);
+        mCounterName = (TextView)findViewById(R.id.CounterName);
+        mCountSign = (ImageView) findViewById(R.id.countSign);
         mVibrator = (Vibrator)getSystemService(VIBRATOR_SERVICE);
         
         // Load fonts from assets folder
@@ -51,7 +54,6 @@ public class MainActivity extends Activity {
         mNunito = Typeface.createFromAsset(getAssets(), "Nunito-Regular.ttf");  
         
         // assign fonts to textViews
-        mCountSign.setTypeface(mNunitoBold);
         mDisplayCount.setTypeface(mNunito);
         
         // get screen size
@@ -63,7 +65,21 @@ public class MainActivity extends Activity {
         
         // set the size of the textviews
         mDisplayCount.setTextSize(TypedValue.COMPLEX_UNIT_PX, mHeight / 8);
-        mCountSign.setTextSize(TypedValue.COMPLEX_UNIT_PX, mHeight / 8);
+        mCounterName.setTextSize(TypedValue.COMPLEX_UNIT_PX, mHeight / 18);
+        
+        int hintFontRatio = 24;
+        
+        if(mHeight > 1000)
+        {
+        	hintFontRatio = 36;
+        }
+        else if(mHeight > 600)
+        {
+        	hintFontRatio = 32;
+        }
+        
+        mTapMessage.setTextSize(TypedValue.COMPLEX_UNIT_PX, mHeight / hintFontRatio);
+        mDecreaseMessage.setTextSize(TypedValue.COMPLEX_UNIT_PX, mHeight / hintFontRatio);
         
         int sign_width = (int) mHeight / 9;
         
@@ -192,7 +208,7 @@ public class MainActivity extends Activity {
     
     private void hideTapMessage()
     {
-    	AlphaAnimation fadeOutAnimation = new AlphaAnimation(1, (float) 0.2);
+    	AlphaAnimation fadeOutAnimation = new AlphaAnimation(1, (float) 0);
     	fadeOutAnimation.setDuration(1500);
     	fadeOutAnimation.setFillAfter(true);
     	
@@ -214,7 +230,7 @@ public class MainActivity extends Activity {
     	
     	mDecreaseMessage.setAnimation(fadeOutAnimation);
     	
-    	AlphaAnimation fadeInAnimation = new AlphaAnimation((float) 0.2, 1);
+    	AlphaAnimation fadeInAnimation = new AlphaAnimation((float) 0, 1);
     	fadeInAnimation.setDuration(1500);
     	fadeInAnimation.setFillAfter(true);
     	

@@ -18,8 +18,8 @@
 
 <resources>
 
-    <style name="light_blue" parent="android:Theme.Light">
-        
+    <style name="light_blue" parent="android:Theme.Light.NoTitleBar">
+        <item name="android:actionBarStyle">@style/light_blue_solid_ActionBar</item>
     </style>
 
 </resources>

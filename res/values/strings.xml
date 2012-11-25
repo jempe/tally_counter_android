@@ -13,4 +13,5 @@
     <string name="more_options">Press Menu button to see more options</string>
     <string name="plus_sign">+</string>
     <string name="minus_sign">-</string>
+    <string name="default_counter_name">Counter</string>
 </resources>
