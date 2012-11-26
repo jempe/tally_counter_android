@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/light_blue"
-    android:contentDescription="@string/plus_sign" >
+    android:contentDescription="@string/plus_sign"
+    android:keepScreenOn="true"
+     >
 
     <Button
         android:id="@+id/button1"
@@ -51,9 +53,9 @@
         android:id="@+id/decrease_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
+        android:layout_marginTop="30dp"
         android:gravity="center"
         android:text="@string/back_to_decrease"
         android:textColor="@android:color/white" />

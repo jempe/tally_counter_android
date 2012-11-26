@@ -10,8 +10,11 @@
     <string name="view_source">View source code</string>
     <string name="tap_to_count">Tap screen to count</string>
     <string name="back_to_decrease">Press Back button to decrease count</string>
+    <string name="tap_to_count_backward">Tap screen to count backward</string>
+    <string name="back_to_decrease_backward">Press Back button to increase count</string>
     <string name="more_options">Press Menu button to see more options</string>
     <string name="plus_sign">+</string>
     <string name="minus_sign">-</string>
     <string name="default_counter_name">Counter</string>
+    <string name="count_forward_backward">"Count Forward / Backward"</string> 
 </resources>

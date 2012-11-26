@@ -7,7 +7,11 @@
         android:title="@string/reset_count"
         android:orderInCategory="101"
         android:showAsAction="never|collapseActionView" />
- 	 <item android:id="@+id/view_source_menu"
+ 	<item android:id="@+id/count_type_menu"
+        android:title="@string/count_forward_backward"
+        android:orderInCategory="101"
+        android:showAsAction="never|collapseActionView" />
+ 	<item android:id="@+id/view_source_menu"
         android:title="@string/view_source"
         android:orderInCategory="101"
         android:showAsAction="never|collapseActionView" />
