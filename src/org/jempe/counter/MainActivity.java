@@ -292,16 +292,20 @@ public class MainActivity extends Activity {
     
     private void setIcons()
     {
-		if(mCountForward == false)
+    	if(mCountForward == false)
 		{
     		mCountSign.setImageResource(R.drawable.minus_light_blue);
+    		mCountSign.setContentDescription("-");
     		mDecreaseButton.setImageResource(R.drawable.plus);
+    		mDecreaseButton.setContentDescription("+");
 			mTapMessage.setText(R.string.tap_to_count_backward);
 		}
 		else
 		{
     		mCountSign.setImageResource(R.drawable.plus_light_blue);
+    		mCountSign.setContentDescription("+");
     		mDecreaseButton.setImageResource(R.drawable.minus);
+    		mDecreaseButton.setContentDescription("-");
 			mTapMessage.setText(R.string.tap_to_count);
 		}
     }

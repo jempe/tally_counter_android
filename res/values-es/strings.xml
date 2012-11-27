@@ -1,7 +1,7 @@
 <resources>
 
-    <string name="app_name">Conteo rápido</string>
-    <string name="title_activity_main">Conteo rápido</string>
+    <string name="app_name">Contador</string>
+    <string name="title_activity_main">Contador</string>
     <string name="decrease_count">Restar Uno</string>
     <string name="reset_count">Volver a contar</string>
     <string name="yes">Si</string>

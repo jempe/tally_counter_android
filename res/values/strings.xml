@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Easy counter</string>
-    <string name="title_activity_main">Easy counter</string>
+    <string name="app_name">Tally counter</string>
+    <string name="title_activity_main">Tally counter</string>
     <string name="decrease_count">Decrease count</string>
     <string name="reset_count">Reset count</string>
     <string name="yes">Yes</string>
