@@ -17,4 +17,8 @@
     <string name="minus_sign">-</string>
     <string name="default_counter_name">Counter</string>
     <string name="count_forward_backward">"Count Forward / Backward"</string> 
+    <string name="cancel">Cancel</string>
+    <string name="set">Set</string> 
+    <string name="set_initial_count">Set initial count</string>
+    <string name="initial_count">Initial count</string>
 </resources>

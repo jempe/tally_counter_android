@@ -60,4 +60,19 @@
         android:textColor="@android:color/white"
         android:textSize="18sp" />
 
+    <ImageButton
+        android:id="@+id/decreaseButton"
+        android:layout_width="80sp"
+        android:layout_height="80sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/minus_sign"
+        android:onClick="decreaseCount"
+        android:scaleType="fitXY"
+        android:soundEffectsEnabled="false"
+        android:src="@drawable/minus" />
+
 </RelativeLayout>

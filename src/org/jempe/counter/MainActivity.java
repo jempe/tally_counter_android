@@ -11,10 +11,13 @@ import android.os.Bundle;
 import android.os.Vibrator;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -31,9 +34,10 @@ public class MainActivity extends Activity {
 	private boolean mTapMessageHidden;
 	private boolean mCountForward;
 	private Typeface mNunito;
-	private int mWidth; 
 	private int mHeight;
 	private SharedPreferences mSettings;
+	private ImageButton mDecreaseButton;
+	private View mSetInitialLayout;
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,6 +49,7 @@ public class MainActivity extends Activity {
         mCounterName = (TextView)findViewById(R.id.CounterName);
         mCountSign = (ImageView) findViewById(R.id.countSign);
         mVibrator = (Vibrator)getSystemService(VIBRATOR_SERVICE);
+        mDecreaseButton = (ImageButton) findViewById(R.id.decreaseButton);
         
         // Load fonts from assets folder
         mNunito = Typeface.createFromAsset(getAssets(), "Nunito-Regular.ttf");  
@@ -57,7 +62,6 @@ public class MainActivity extends Activity {
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
 
         mHeight = metrics.heightPixels;
-        mWidth = metrics.widthPixels;
         
         // set the size of the textviews
         mDisplayCount.setTextSize(TypedValue.COMPLEX_UNIT_PX, mHeight / 8);
@@ -84,6 +88,13 @@ public class MainActivity extends Activity {
         layoutparams.rightMargin = 20;
         layoutparams.topMargin = (int) ((mHeight - (mHeight / 1.618)) - (sign_width * 1.5));
         mCountSign.setLayoutParams(layoutparams);
+        
+        RelativeLayout.LayoutParams layoutparamsdec = new RelativeLayout.LayoutParams(sign_width, sign_width);
+        layoutparamsdec.addRule(RelativeLayout.ALIGN_PARENT_LEFT, RelativeLayout.TRUE);
+        layoutparamsdec.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE);
+        layoutparamsdec.leftMargin = 20;
+        layoutparamsdec.bottomMargin = 20;
+        mDecreaseButton.setLayoutParams(layoutparamsdec);
 
     }
     
@@ -96,16 +107,7 @@ public class MainActivity extends Activity {
 		mTapCounter.changeCount(mSettings.getInt("latest_count", 0));
 		mCountForward = mSettings.getBoolean("count_forward", true);
 		
-		if(mCountForward == true)
-		{
-    		mCountSign.setImageResource(R.drawable.plus_light_blue);
-			mTapMessage.setText(R.string.tap_to_count);
-		}
-		else
-		{
-    		mCountSign.setImageResource(R.drawable.minus_light_blue);
-			mTapMessage.setText(R.string.tap_to_count_backward);
-		}
+		setIcons();
 		
         String currentCount = mTapCounter.getCount();
         
@@ -157,6 +159,36 @@ public class MainActivity extends Activity {
             	AlertDialog dialog = builder.create();
             	dialog.show();
             	return true;
+            case R.id.set_initial_count_menu:
+                AlertDialog.Builder builderInitialCount = new AlertDialog.Builder(this);
+                // Get the layout inflater
+                LayoutInflater inflater = this.getLayoutInflater();
+
+                mSetInitialLayout = inflater.inflate(R.layout.initial_count, null);
+                
+                // Inflate and set the layout for the dialog
+                // Pass null as the parent view because its going in the dialog layout
+                builderInitialCount.setView(mSetInitialLayout)
+                // Add action buttons
+                       .setPositiveButton(R.string.set, new DialogInterface.OnClickListener() {
+                           public void onClick(DialogInterface dialog, int id) {
+                        	   EditText mValue   = (EditText) mSetInitialLayout.findViewById(R.id.initial_number);
+                        	   
+                        	   String SelectedValue = mValue.getText().toString();
+                        	   
+                        	   if(SelectedValue.length() > 0)
+                        	   {
+                        		   setCount(Integer.parseInt(SelectedValue));
+                        	   }
+                           }
+                       })
+                       .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                           public void onClick(DialogInterface dialog, int id) {
+                           }
+                       });      
+                AlertDialog dialogInitialCount = builderInitialCount.create();
+            	dialogInitialCount.show();
+            	return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -184,7 +216,7 @@ public class MainActivity extends Activity {
     	}
     }
     
-    public void decreaseCount()
+    public void decreaseCount(View view)
     {
     	if(mCountForward == false)
     	{
@@ -199,11 +231,22 @@ public class MainActivity extends Activity {
         String currentCount = mTapCounter.getCount();
         
         mDisplayCount.setText(currentCount);
+    	mVibrator.vibrate(150);
     }
     
     public void resetCount()
     {
    		mTapCounter.resetCount();
+   		saveCount();
+	
+   		String currentCount = mTapCounter.getCount();
+    
+   		mDisplayCount.setText(currentCount);
+    }
+    
+    public void setCount(int CountValue)
+    {
+   		mTapCounter.changeCount(CountValue);
    		saveCount();
 	
    		String currentCount = mTapCounter.getCount();
@@ -232,16 +275,14 @@ public class MainActivity extends Activity {
     {
 		if(mCountForward == true)
 		{
-    		mCountSign.setImageResource(R.drawable.minus_light_blue);
-			mTapMessage.setText(R.string.tap_to_count_backward);
 			mCountForward = false;
 		}
 		else
 		{
-    		mCountSign.setImageResource(R.drawable.plus_light_blue);
-			mTapMessage.setText(R.string.tap_to_count);
 			mCountForward = true;
 		}
+		
+		setIcons();
     
 		SharedPreferences.Editor editor = mSettings.edit();
 		editor.putBoolean("count_forward", mCountForward);
@@ -249,10 +290,26 @@ public class MainActivity extends Activity {
 		editor.commit();
     }
     
+    private void setIcons()
+    {
+		if(mCountForward == false)
+		{
+    		mCountSign.setImageResource(R.drawable.minus_light_blue);
+    		mDecreaseButton.setImageResource(R.drawable.plus);
+			mTapMessage.setText(R.string.tap_to_count_backward);
+		}
+		else
+		{
+    		mCountSign.setImageResource(R.drawable.plus_light_blue);
+    		mDecreaseButton.setImageResource(R.drawable.minus);
+			mTapMessage.setText(R.string.tap_to_count);
+		}
+    }
+    
     @Override
     public void onBackPressed()
     {
-        decreaseCount();
+        decreaseCount(mCountSign);
     }
     
     private void hideTapMessage()
