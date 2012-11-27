@@ -1,8 +1,4 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/decrease_count_menu"
-        android:title="@string/decrease_count"
-        android:orderInCategory="100"
-        android:showAsAction="never|collapseActionView" />
  	<item android:id="@+id/reset_count_menu"
         android:title="@string/reset_count"
         android:orderInCategory="101"

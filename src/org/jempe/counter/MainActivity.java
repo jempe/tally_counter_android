@@ -26,7 +26,6 @@ public class MainActivity extends Activity {
 	private TapCounter mTapCounter = new TapCounter();
 	public static final String PREFS_NAME = "CounterPrefs";
 	private TextView mTapMessage;
-	private TextView mDecreaseMessage;
 	private TextView mCounterName;
 	private ImageView mCountSign;
 	private boolean mTapMessageHidden;
@@ -34,6 +33,7 @@ public class MainActivity extends Activity {
 	private Typeface mNunito;
 	private int mWidth; 
 	private int mHeight;
+	private SharedPreferences mSettings;
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,7 +42,6 @@ public class MainActivity extends Activity {
         
         mDisplayCount = (TextView)findViewById(R.id.displayCount);
         mTapMessage = (TextView)findViewById(R.id.tap_to_count_message);
-        mDecreaseMessage = (TextView)findViewById(R.id.decrease_message);
         mCounterName = (TextView)findViewById(R.id.CounterName);
         mCountSign = (ImageView) findViewById(R.id.countSign);
         mVibrator = (Vibrator)getSystemService(VIBRATOR_SERVICE);
@@ -76,7 +75,6 @@ public class MainActivity extends Activity {
         }
         
         mTapMessage.setTextSize(TypedValue.COMPLEX_UNIT_PX, mHeight / hintFontRatio);
-        mDecreaseMessage.setTextSize(TypedValue.COMPLEX_UNIT_PX, mHeight / hintFontRatio);
         
         int sign_width = (int) mHeight / 9;
         
@@ -93,21 +91,20 @@ public class MainActivity extends Activity {
     {
     	super.onResume();
     	
-		SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-		mTapCounter.changeCount(settings.getInt("latest_count", 0));
-		mCountForward = settings.getBoolean("count_forward", true);
+    	mSettings = getSharedPreferences(PREFS_NAME, 0);
+		
+		mTapCounter.changeCount(mSettings.getInt("latest_count", 0));
+		mCountForward = mSettings.getBoolean("count_forward", true);
 		
 		if(mCountForward == true)
 		{
     		mCountSign.setImageResource(R.drawable.plus_light_blue);
 			mTapMessage.setText(R.string.tap_to_count);
-			mDecreaseMessage.setText(R.string.back_to_decrease);
 		}
 		else
 		{
     		mCountSign.setImageResource(R.drawable.minus_light_blue);
 			mTapMessage.setText(R.string.tap_to_count_backward);
-			mDecreaseMessage.setText(R.string.back_to_decrease_backward);
 		}
 		
         String currentCount = mTapCounter.getCount();
@@ -136,9 +133,6 @@ public class MainActivity extends Activity {
         	case R.id.view_source_menu:
         		viewSource();
         		return true;
-            case R.id.decrease_count_menu:
-                decreaseCount();
-                return true;
             case R.id.count_type_menu:
                 toggleCountType();
                 return true;
@@ -238,21 +232,18 @@ public class MainActivity extends Activity {
     {
 		if(mCountForward == true)
 		{
-    		mCountSign.setImageResource(R.drawable.plus_light_blue);
-			mTapMessage.setText(R.string.tap_to_count);
-			mDecreaseMessage.setText(R.string.back_to_decrease);
+    		mCountSign.setImageResource(R.drawable.minus_light_blue);
+			mTapMessage.setText(R.string.tap_to_count_backward);
 			mCountForward = false;
 		}
 		else
 		{
-    		mCountSign.setImageResource(R.drawable.minus_light_blue);
-			mTapMessage.setText(R.string.tap_to_count_backward);
-			mDecreaseMessage.setText(R.string.back_to_decrease_backward);
+    		mCountSign.setImageResource(R.drawable.plus_light_blue);
+			mTapMessage.setText(R.string.tap_to_count);
 			mCountForward = true;
 		}
-    	
-		SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-		SharedPreferences.Editor editor = settings.edit();
+    
+		SharedPreferences.Editor editor = mSettings.edit();
 		editor.putBoolean("count_forward", mCountForward);
 
 		editor.commit();
@@ -272,22 +263,10 @@ public class MainActivity extends Activity {
     	
     	mTapMessage.setAnimation(fadeOutAnimation);
     	mTapMessageHidden = true;
-    	
-    	AlphaAnimation fadeInAnimation = new AlphaAnimation(0, 1);
-    	fadeInAnimation.setDuration(1500);
-    	fadeInAnimation.setFillAfter(true);
-    	
-    	mDecreaseMessage.setAnimation(fadeInAnimation);
     }
     
     private void showTapMessage()
     {
-    	AlphaAnimation fadeOutAnimation = new AlphaAnimation(1, 0);
-    	fadeOutAnimation.setDuration(0);
-    	fadeOutAnimation.setFillAfter(true);
-    	
-    	mDecreaseMessage.setAnimation(fadeOutAnimation);
-    	
     	AlphaAnimation fadeInAnimation = new AlphaAnimation((float) 0, 1);
     	fadeInAnimation.setDuration(1500);
     	fadeInAnimation.setFillAfter(true);

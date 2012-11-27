@@ -50,23 +50,12 @@
         tools:context=".MainActivity" />
     
     <TextView
-        android:id="@+id/decrease_message"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:gravity="center"
-        android:text="@string/back_to_decrease"
-        android:textColor="@android:color/white" />
-
-    <TextView
         android:id="@+id/tap_to_count_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
-        android:layout_alignParentBottom="true"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentTop="true"
         android:text="@string/tap_to_count"
         android:textColor="@android:color/white"
         android:textSize="18sp" />
