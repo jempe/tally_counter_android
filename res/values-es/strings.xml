@@ -16,4 +16,8 @@
     <string name="more_options">Presione el botón menú para mas opciones</string>   
     <string name="default_counter_name">Contador</string>
     <string name="count_forward_backward">"Contar hacia adelante / atrás"</string>
+    <string name="cancel">Cancelar</string>
+    <string name="set">Cambiar</string> 
+    <string name="set_initial_count">Cambiar número inicial</string>
+    <string name="initial_count">Número inicial</string>
 </resources>
