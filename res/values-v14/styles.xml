@@ -3,6 +3,7 @@
     <style name="light_blue" parent="android:Theme.Holo.Light">
         <item name="android:actionBarStyle">@style/light_blue_solid_ActionBar</item>
         <item name="android:actionDropDownStyle">@style/light_blue_DropDownNav</item>
+        <item name="android:actionOverflowButtonStyle">@style/OverFlow</item>
     </style>
     
     <style name="light_blue_solid_ActionBar">
@@ -23,6 +24,10 @@
     
     <style name="light_blue_solid_ActionBar_DropDown">
     	<item name="android:textColor">@color/black</item>
+	</style>
+	
+    <style name="OverFlow" parent="@android:style/Widget.Holo.ActionButton.Overflow">
+    	<item name="android:src">@drawable/menu_light_blue</item>
 	</style>
     
 </resources>

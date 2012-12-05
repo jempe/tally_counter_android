@@ -35,6 +35,7 @@ public class MainActivity extends Activity {
 	private boolean mCountForward;
 	private Typeface mNunito;
 	private int mHeight;
+	private int mWidth;
 	private SharedPreferences mSettings;
 	private ImageButton mDecreaseButton;
 	private View mSetInitialLayout;
@@ -56,16 +57,32 @@ public class MainActivity extends Activity {
         
         // assign fonts to textViews
         mDisplayCount.setTypeface(mNunito);
-        
+    }
+    
+    public void onResume()
+    {
+    	super.onResume();
+    	
         // get screen size
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
 
         mHeight = metrics.heightPixels;
+        mWidth = metrics.widthPixels;
+        
+        // set size ratio between landscape and portrait
+        float portrait_landscape_ratio = (float) 0.7;
+        float count_sign_position = (float) 0.8;
+        
+        // if it is portrait dont resize the items
+        if(mHeight > mWidth)
+        {
+        	portrait_landscape_ratio = count_sign_position = (float) 1.0;
+        }
         
         // set the size of the textviews
-        mDisplayCount.setTextSize(TypedValue.COMPLEX_UNIT_PX, mHeight / 8);
-        mCounterName.setTextSize(TypedValue.COMPLEX_UNIT_PX, mHeight / 18);
+        mDisplayCount.setTextSize(TypedValue.COMPLEX_UNIT_PX, mHeight / (8 * portrait_landscape_ratio));
+        mCounterName.setTextSize(TypedValue.COMPLEX_UNIT_PX, mHeight / (18 * portrait_landscape_ratio));
         
         int hintFontRatio = 24;
         
@@ -78,15 +95,15 @@ public class MainActivity extends Activity {
         	hintFontRatio = 32;
         }
         
-        mTapMessage.setTextSize(TypedValue.COMPLEX_UNIT_PX, mHeight / hintFontRatio);
+        mTapMessage.setTextSize(TypedValue.COMPLEX_UNIT_PX, mHeight / (hintFontRatio * portrait_landscape_ratio));
         
-        int sign_width = (int) mHeight / 9;
+        int sign_width = (int) ((int) mHeight / (9 * portrait_landscape_ratio));
         
         RelativeLayout.LayoutParams layoutparams = new RelativeLayout.LayoutParams(sign_width, sign_width);
         layoutparams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, RelativeLayout.TRUE);
         layoutparams.addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.TRUE);
         layoutparams.rightMargin = 20;
-        layoutparams.topMargin = (int) ((mHeight - (mHeight / 1.618)) - (sign_width * 1.5));
+        layoutparams.topMargin = (int) ((mHeight - (mHeight / (1.618 / count_sign_position))) - (sign_width * 1.5));
         mCountSign.setLayoutParams(layoutparams);
         
         RelativeLayout.LayoutParams layoutparamsdec = new RelativeLayout.LayoutParams(sign_width, sign_width);
@@ -95,12 +112,18 @@ public class MainActivity extends Activity {
         layoutparamsdec.leftMargin = 20;
         layoutparamsdec.bottomMargin = 20;
         mDecreaseButton.setLayoutParams(layoutparamsdec);
-
-    }
-    
-    public void onResume()
-    {
-    	super.onResume();
+        
+        if(mHeight < mWidth)
+        {
+            RelativeLayout.LayoutParams layoutparamsdisplay = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, 
+            		RelativeLayout.LayoutParams.WRAP_CONTENT);
+            layoutparamsdisplay.addRule(RelativeLayout.LEFT_OF, R.id.countSign);
+            layoutparamsdisplay.addRule(RelativeLayout.ALIGN_TOP, R.id.countSign);
+            layoutparamsdisplay.rightMargin = 8;
+            layoutparamsdisplay.topMargin = sign_width / -5;
+            mDisplayCount.setLayoutParams(layoutparamsdisplay);
+        }
+    	
     	
     	mSettings = getSharedPreferences(PREFS_NAME, 0);
 		
