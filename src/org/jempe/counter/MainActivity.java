@@ -39,6 +39,7 @@ public class MainActivity extends Activity {
 	private SharedPreferences mSettings;
 	private ImageButton mDecreaseButton;
 	private View mSetInitialLayout;
+	private View mSetCounterNameLayout;
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -133,7 +134,9 @@ public class MainActivity extends Activity {
 		setIcons();
 		
         String currentCount = mTapCounter.getCount();
+        String currentCounterName = mSettings.getString("counter_name", getString(R.string.default_counter_name));
         
+        mCounterName.setText(currentCounterName);
         mDisplayCount.setText(currentCount);
         showTapMessage();
     }
@@ -211,6 +214,41 @@ public class MainActivity extends Activity {
                        });      
                 AlertDialog dialogInitialCount = builderInitialCount.create();
             	dialogInitialCount.show();
+            	return true;
+            case R.id.set_counter_name_menu:
+                AlertDialog.Builder builderCounterName = new AlertDialog.Builder(this);
+                // Get the layout inflater
+                LayoutInflater inflaterCounterName = this.getLayoutInflater();
+
+                mSetCounterNameLayout = inflaterCounterName.inflate(R.layout.counter_name, null);
+                
+                // Inflate and set the layout for the dialog
+                // Pass null as the parent view because its going in the dialog layout
+                builderCounterName.setView(mSetCounterNameLayout)
+                // Add action buttons
+                       .setPositiveButton(R.string.set, new DialogInterface.OnClickListener() {
+                           public void onClick(DialogInterface dialog, int id) {
+                        	   EditText mValue   = (EditText) mSetCounterNameLayout.findViewById(R.id.set_counter_name);
+                        	   
+                        	   String SelectedValue = mValue.getText().toString();
+                        	   
+                        	   if(SelectedValue.length() > 0)
+                        	   {
+                        		   mCounterName.setText(SelectedValue);
+                        		   
+                        			SharedPreferences.Editor editor = mSettings.edit();
+                        			editor.putString("counter_name", SelectedValue);
+
+                        			editor.commit();
+                        	   }
+                           }
+                       })
+                       .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                           public void onClick(DialogInterface dialog, int id) {
+                           }
+                       });      
+                AlertDialog dialogCounterName = builderCounterName.create();
+            	dialogCounterName.show();
             	return true;
             default:
                 return super.onOptionsItemSelected(item);

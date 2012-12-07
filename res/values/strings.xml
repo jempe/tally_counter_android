@@ -21,4 +21,6 @@
     <string name="set">Set</string> 
     <string name="set_initial_count">Set initial count</string>
     <string name="initial_count">Initial count</string>
+    <string name="counter_name">Counter name</string>
+    <string name="set_counter_name">Set counter name</string>
 </resources>

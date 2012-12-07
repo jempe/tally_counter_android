@@ -11,6 +11,10 @@
         android:title="@string/set_initial_count"
         android:orderInCategory="103"
         android:showAsAction="never|collapseActionView" />
+ 	<item android:id="@+id/set_counter_name_menu"
+        android:title="@string/set_counter_name"
+        android:orderInCategory="103"
+        android:showAsAction="never|collapseActionView" />
  	<item android:id="@+id/view_source_menu"
         android:title="@string/view_source"
         android:orderInCategory="104"

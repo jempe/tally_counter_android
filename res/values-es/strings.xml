@@ -20,4 +20,6 @@
     <string name="set">Cambiar</string> 
     <string name="set_initial_count">Cambiar número inicial</string>
     <string name="initial_count">Número inicial</string>
+    <string name="counter_name">Nombre del contador</string>
+    <string name="set_counter_name">Cambiar el nombre del contador</string>
 </resources>
