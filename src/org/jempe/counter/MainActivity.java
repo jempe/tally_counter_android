@@ -100,12 +100,20 @@ public class MainActivity extends Activity {
         
         int sign_width = (int) ((int) mHeight / (9 * portrait_landscape_ratio));
         
+  
         RelativeLayout.LayoutParams layoutparams = new RelativeLayout.LayoutParams(sign_width, sign_width);
         layoutparams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, RelativeLayout.TRUE);
         layoutparams.addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.TRUE);
         layoutparams.rightMargin = 20;
         layoutparams.topMargin = (int) ((mHeight - (mHeight / (1.618 / count_sign_position))) - (sign_width * 1.5));
         mCountSign.setLayoutParams(layoutparams);
+        
+        RelativeLayout.LayoutParams layoutparamsname = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, 
+        		RelativeLayout.LayoutParams.WRAP_CONTENT);
+        layoutparamsname.addRule(RelativeLayout.ALIGN_RIGHT, R.id.countSign);
+        layoutparamsname.addRule(RelativeLayout.BELOW, R.id.displayCount);
+        layoutparamsname.topMargin = (int) ((int) (mHeight / (18 * portrait_landscape_ratio)) * -0.6);
+        mCounterName.setLayoutParams(layoutparamsname);
         
         RelativeLayout.LayoutParams layoutparamsdec = new RelativeLayout.LayoutParams(sign_width, sign_width);
         layoutparamsdec.addRule(RelativeLayout.ALIGN_PARENT_LEFT, RelativeLayout.TRUE);
