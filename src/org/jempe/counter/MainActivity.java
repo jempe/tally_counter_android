@@ -14,8 +14,11 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 import android.view.animation.AlphaAnimation;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -40,6 +43,7 @@ public class MainActivity extends Activity {
 	private ImageButton mDecreaseButton;
 	private View mSetInitialLayout;
 	private View mSetCounterNameLayout;
+	private Button mCountButton;
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,6 +56,83 @@ public class MainActivity extends Activity {
         mCountSign = (ImageView) findViewById(R.id.countSign);
         mVibrator = (Vibrator)getSystemService(VIBRATOR_SERVICE);
         mDecreaseButton = (ImageButton) findViewById(R.id.decreaseButton);
+        
+        mCountButton = (Button) findViewById(R.id.big_button);
+        mCountButton.setOnTouchListener(new OnTouchListener() {
+
+            public boolean onTouch(View v, MotionEvent event)
+            {
+                if (event.getAction() == MotionEvent.ACTION_DOWN )
+                {
+                	if(mCountForward == false)
+            		{
+                		mCountSign.setImageResource(R.drawable.minus);
+            		}
+            		else
+            		{
+                		mCountSign.setImageResource(R.drawable.plus);
+            		}
+                	
+                    return true;
+                }
+                
+                if (event.getAction() == MotionEvent.ACTION_UP )
+                {
+                	if(mCountForward == false)
+            		{
+                		mCountSign.setImageResource(R.drawable.minus_light_blue);
+            		}
+            		else
+            		{
+                		mCountSign.setImageResource(R.drawable.plus_light_blue);
+            		}
+                	
+                	incCount();
+                	
+                    return true;
+                }
+
+                return false;
+            }
+        });
+        
+        mDecreaseButton.setOnTouchListener(new OnTouchListener() {
+
+            public boolean onTouch(View v, MotionEvent event)
+            {
+                if (event.getAction() == MotionEvent.ACTION_DOWN )
+                {
+                	if(mCountForward == false)
+            		{
+                		mDecreaseButton.setImageResource(R.drawable.plus_light_blue);
+            		}
+            		else
+            		{
+                		mDecreaseButton.setImageResource(R.drawable.minus_light_blue);
+            		}
+                	
+                    return true;
+                }
+                
+                if (event.getAction() == MotionEvent.ACTION_UP )
+                {
+                	if(mCountForward == false)
+            		{
+                		mDecreaseButton.setImageResource(R.drawable.plus);
+            		}
+            		else
+            		{
+                		mDecreaseButton.setImageResource(R.drawable.minus);
+            		}
+                	
+                	decreaseCount();
+                	
+                    return true;
+                }
+
+                return false;
+            }
+        });
         
         // Load fonts from assets folder
         mNunito = Typeface.createFromAsset(getAssets(), "Nunito-Regular.ttf");  
@@ -263,7 +344,7 @@ public class MainActivity extends Activity {
         }
     }
     
-    public void incCount(View view)
+    public void incCount()
     {
     	if(mCountForward == true)
     	{
@@ -285,7 +366,7 @@ public class MainActivity extends Activity {
     	}
     }
     
-    public void decreaseCount(View view)
+    public void decreaseCount()
     {
     	if(mCountForward == false)
     	{
@@ -382,7 +463,7 @@ public class MainActivity extends Activity {
     @Override
     public void onBackPressed()
     {
-        decreaseCount(mCountSign);
+        decreaseCount();
     }
     
     private void hideTapMessage()
