@@ -9,7 +9,7 @@
     <string name="reset_title">Volver a contar</string>
     <string name="reset_message">¿Realmente desea volver a cero?</string>
     <string name="view_source">Ver el código fuente</string>
-    <string name="tap_to_count">Toque la pantalla para contar</string>
+    <string name="tap_to_count">Toque en cualquier lugar para contar</string>
     <string name="back_to_decrease">Presione el botón Atrás para contar hacia atrás</string>
     <string name="tap_to_count_backward">Toque la pantalla para contar hacia atrás</string>
     <string name="back_to_decrease_backward">Presione el botón Atrás para contar hacia adelante</string>

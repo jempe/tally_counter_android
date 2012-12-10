@@ -8,7 +8,7 @@
     <string name="reset_title">Reset count</string>
     <string name="reset_message">Do you really want to reset?</string>
     <string name="view_source">View source code</string>
-    <string name="tap_to_count">Tap screen to count</string>
+    <string name="tap_to_count">Tap anywhere to count</string>
     <string name="back_to_decrease">Press Back button to decrease count</string>
     <string name="tap_to_count_backward">Tap screen to count backwards</string>
     <string name="back_to_decrease_backward">Press Back button to increase count</string>

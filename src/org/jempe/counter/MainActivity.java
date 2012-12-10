@@ -448,7 +448,7 @@ public class MainActivity extends Activity {
     		mCountSign.setContentDescription("-");
     		mDecreaseButton.setImageResource(R.drawable.plus);
     		mDecreaseButton.setContentDescription("+");
-			mTapMessage.setText(R.string.tap_to_count_backward);
+			//mTapMessage.setText(R.string.tap_to_count_backward);
 		}
 		else
 		{
@@ -456,7 +456,7 @@ public class MainActivity extends Activity {
     		mCountSign.setContentDescription("+");
     		mDecreaseButton.setImageResource(R.drawable.minus);
     		mDecreaseButton.setContentDescription("-");
-			mTapMessage.setText(R.string.tap_to_count);
+			//mTapMessage.setText(R.string.tap_to_count);
 		}
     }
     
